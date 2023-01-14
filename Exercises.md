@@ -41,3 +41,11 @@ O(N * log(N))
 ![1673704273730](image/Exercises/1673704273730.png)
 
 ![1673704303061](image/Exercises/1673704303061.png)
+
+## StrSymmetryPoint
+
+![1673706130815](image/Exercises/1673706130815.png)
+
+![1673706154340](image/Exercises/1673706154340.png)
+
+![1673706169324](image/Exercises/1673706169324.png)
