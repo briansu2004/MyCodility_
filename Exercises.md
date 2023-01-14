@@ -56,3 +56,11 @@ O(length(S))
 ![1673706154340](image/Exercises/1673706154340.png)
 
 ![1673706169324](image/Exercises/1673706169324.png)
+
+## TreeHeight
+
+![1673734269485](image/Exercises/1673734269485.png)
+
+![1673734294607](image/Exercises/1673734294607.png)
+
+![1673734307041](image/Exercises/1673734307041.png)
