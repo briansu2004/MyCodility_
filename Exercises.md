@@ -31,3 +31,13 @@ class Solution {
     }
 }
 ```
+
+O(N * log(N))
+
+100%
+
+![1673704220801](image/Exercises/1673704220801.png)
+
+![1673704273730](image/Exercises/1673704273730.png)
+
+![1673704303061](image/Exercises/1673704303061.png)
