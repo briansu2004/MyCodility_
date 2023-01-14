@@ -47,6 +47,10 @@ O(N * log(N))
 
 ## StrSymmetryPoint
 
+O(length(S))
+
+100%
+
 ![1673706130815](image/Exercises/1673706130815.png)
 
 ![1673706154340](image/Exercises/1673706154340.png)
