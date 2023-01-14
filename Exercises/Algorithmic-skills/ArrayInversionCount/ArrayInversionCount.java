@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 /*
  * An array A consisting of N integers is given. An inversion is a pair of indexes (P, Q) such that
  * P < Q and A[Q] < A[P].
@@ -20,12 +23,36 @@
  * range [−2,147,483,648..2,147,483,647].
  */
 
+
 public class ArrayInversionCount {
 
 
+    public static int getArrayInversionCount(int[] a) {
+
+        int result = 0;
+        
+
+        Arrays.sort(a);
+
+        a.Sort();
+
+        for (int i = 0; i < A.Length; i++){
+        int idxFound = sortedA.BinarySearch(A[i]);
+        // if duplicates, retrieve first occurence
+        while (idxFound > 0 && sortedA[idxFound-1] == sortedA[idxFound]){
+        idxFound--;
+        }
+        result += idxFound;
+        if (result > 1000000000) return -1;
+        sortedA.RemoveAt(idxFound);
+        }
+
+        return result;
+    }
+
     // O(N**2)
     // 63%
-    public static int getArrayInversionCount(int[] a) {
+    public static int getArrayInversionCount1(int[] a) {
         if (a == null || a.length <= 1) {
             return 0;
         }
