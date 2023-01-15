@@ -72,3 +72,7 @@ O(length(S))
 ![1673743064057](image/Exercises/1673743064057.png)
 
 ![1673743085222](image/Exercises/1673743085222.png)
+
+## DisappearingPairs
+
+## PolygonConcavityIndex
