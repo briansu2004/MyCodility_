@@ -56,9 +56,18 @@
  */
 
 public class PolygonConcavityIndex {
-
-
     public int solution(Point[] poly) {
+        if (poly.length < 4) {
+            return -1;
+        }
+
+        int len = poly.length;
+        Point[] pts = new Point[len];
+        for (int i = 0; i < len; i++) {
+            pts[i] = poly[i];
+        }
+
+
 
         return -1;
     }
