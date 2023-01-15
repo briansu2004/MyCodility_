@@ -64,3 +64,11 @@ O(length(S))
 ![1673734294607](image/Exercises/1673734294607.png)
 
 ![1673734307041](image/Exercises/1673734307041.png)
+
+## ArrayInversionCount
+
+![1673743042478](image/Exercises/1673743042478.png)
+
+![1673743064057](image/Exercises/1673743064057.png)
+
+![1673743085222](image/Exercises/1673743085222.png)
