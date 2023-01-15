@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.List;
 
 /*
  * An array A consisting of N integers is given. An inversion is a pair of indexes (P, Q) such that
@@ -25,34 +24,95 @@ import java.util.List;
 
 
 public class ArrayInversionCount {
+    private final int LIMIT = 1000000000;
 
-
-    public static int getArrayInversionCount(int[] a) {
-
-        int result = 0;
-        
-
-        Arrays.sort(a);
-
-        a.Sort();
-
-        for (int i = 0; i < A.Length; i++){
-        int idxFound = sortedA.BinarySearch(A[i]);
-        // if duplicates, retrieve first occurence
-        while (idxFound > 0 && sortedA[idxFound-1] == sortedA[idxFound]){
-        idxFound--;
-        }
-        result += idxFound;
-        if (result > 1000000000) return -1;
-        sortedA.RemoveAt(idxFound);
+    int getArrayInversionCount(int[] a) {
+        if (a.length <= 1) {
+            return 0;
         }
 
-        return result;
+        int index = a.length / 2;
+
+        int[] left = Arrays.copyOfRange(a, 0, index);
+        int[] right = Arrays.copyOfRange(a, index, a.length);
+    
+        int cnt = getArrayInversionCount(left) + getArrayInversionCount(right) + mergeIt(a, left, right);
+
+        return (cnt > LIMIT) ? -1 : cnt;
+    }
+
+    int mergeIt(int arr[], int[] left, int[] right) {
+        int l = 0, r = 0, inv = 0;
+        while (l < left.length || r < right.length) {
+            if (l == left.length) {
+                arr[l + r] = right[r];
+                r++;
+            } else if (r == right.length) {
+                arr[l + r] = left[l];
+                l++;
+            } else if (left[l] > right[r]) {
+                arr[l + r] = right[r];
+                inv += left.length - l;
+                r++;
+            } else if (left[l] <= right[r]) {
+                arr[l + r] = left[l];
+                l++;
+            }
+        }
+        return inv;
+    }
+
+
+    private long s = 0;
+
+    public int getArrayInversionCount2(int[] a) {
+        sort(a, 0, a.length);
+        if (s > 1000000000) {
+            return -1;
+        }
+        return (int) s;
+    }
+
+    private int[] sort(final int[] a, final int from, final int to) {
+        if (to == from) {
+            return new int[0];
+        }
+        if (to - from == 1) {
+            return new int[] {a[from]};
+        }
+        final int[] left = sort(a, from, (from + to) / 2);
+        final int[] right = sort(a, (from + to) / 2, to);
+        return merge(left, right);
+    }
+
+    private int[] merge(final int[] a, final int[] b) {
+        final int[] out = new int[a.length + b.length];
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        int count = 0;
+        while (i < a.length && j < b.length) {
+            if (a[i] <= b[j]) {
+                out[k++] = a[i++];
+                this.s += count;
+            } else {
+                out[k++] = b[j++];
+                count++;
+            }
+        }
+        while (i < a.length) {
+            out[k++] = a[i++];
+            this.s += count;
+        }
+        while (j < b.length) {
+            out[k++] = b[j++];
+        }
+        return out;
     }
 
     // O(N**2)
     // 63%
-    public static int getArrayInversionCount1(int[] a) {
+    public int getArrayInversionCount1(int[] a) {
         if (a == null || a.length <= 1) {
             return 0;
         }
@@ -77,7 +137,16 @@ public class ArrayInversionCount {
         arr1[3] = 4;
         arr1[4] = 7;
         arr1[5] = 4;
+        int[] arr2 = arr1.clone();
+        int[] arr3 = arr1.clone();
+
+        ArrayInversionCount a = new ArrayInversionCount();
+
         System.out.printf("The ArrayInversionCount of %s is %s\n", arr1,
-                getArrayInversionCount(arr1));
+                a.getArrayInversionCount(arr1));
+        System.out.printf("The ArrayInversionCount of %s is %s\n", arr2,
+                a.getArrayInversionCount1(arr2));
+        System.out.printf("The ArrayInversionCount of %s is %s\n", arr3,
+                a.getArrayInversionCount2(arr3));
     }
 }
