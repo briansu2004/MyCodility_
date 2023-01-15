@@ -1,7 +1,3 @@
-package Practice.ReverseAString;
-
-
-
 public class ReverString {
     public static String reverseString(String s) {
         StringBuilder sb = new StringBuilder(s);

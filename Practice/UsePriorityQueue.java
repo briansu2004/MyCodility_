@@ -1,5 +1,3 @@
-package Practice.ReverseAString;
-
 import java.util.Queue;
 import java.util.PriorityQueue;
 

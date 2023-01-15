@@ -74,9 +74,6 @@ public class PolygonConcavityIndex {
         int[] minYPoint = poly[0];
         System.out.printf("The lowest y is %s\n", minYPoint[1]);
 
-        int
-
-
         return -1;
     }
 
