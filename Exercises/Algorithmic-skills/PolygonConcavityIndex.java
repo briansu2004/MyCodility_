@@ -58,27 +58,57 @@
 public class PolygonConcavityIndex {
 
 
-    public String solution(String s) {
-        StringBuilder sb = new StringBuilder();
+    public int solution(Point[] poly) {
 
-        for (char c : s.toCharArray()) {
-            int size = sb.length();
-            if (size > 0 && sb.charAt(size - 1) == c) {
-                sb.deleteCharAt(size - 1);
-            } else {
-                sb.append(c);
-            }
-        }
-
-        return sb.toString();
+        return -1;
     }
 
     public static void main(String[] args) {
         PolygonConcavityIndex pci = new PolygonConcavityIndex();
 
-        // String s = "ACCAABBC";
-        // System.out.printf("%s -> %s\n", s, pci.solution(s));
+        Point[] poly1 = new Point[5];
+        poly1[0] = new Point(-1, 3);
+        poly1[1] = new Point(1, 2);
+        poly1[2] = new Point(3, 1);
+        poly1[3] = new Point(0, -1);
+        poly1[4] = new Point(-2, 1);
+        System.out.printf("%s -> %s\n", poly1, pci.solution(poly1));
+
+        Point[] poly2 = new Point[7];
+        poly2[0] = new Point(-1, 3);
+        poly2[1] = new Point(1, 2);
+        poly2[2] = new Point(1, 1);
+        poly2[3] = new Point(3, 1);
+        poly2[4] = new Point(0, -1);
+        poly2[5] = new Point(-2, 1);
+        poly2[6] = new Point(-1, 2);
+        System.out.printf("%s -> %s\n", poly2, pci.solution(poly2));
     }
 }
 
-class Point
+
+class Point {
+    int x;
+    int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+}
