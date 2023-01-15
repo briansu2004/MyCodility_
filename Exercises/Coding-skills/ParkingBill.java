@@ -23,7 +23,7 @@ In your solution, focus on correctness. The performance of your solution will no
 
 public class ParkingBill {
     public int solution(String e, String l) {
-        int entry = 2;
+        int bill = 2;
 
         int enterHour = Integer. parseInt(e.split(":")[0]);
         int enterMinute = Integer.parseInt(e.split(":")[1]);
@@ -31,12 +31,17 @@ public class ParkingBill {
         int exitHour = Integer.parseInt(l.split(":")[0]);
         int exitMinute = Integer.parseInt(l.split(":")[1]);
 
-        if (enterHour * 100 + enterMinute >= exitHour * 100 + exitMinute) {
-            return 0;
+        // System.out.printf("%s %s -> %s %s\n", enterHour, enterMinute, exitHour, exitMinute);
+
+        // fist hour
+        if ((enterHour + 1) * 100 + enterMinute >= exitHour * 100 + exitMinute) {
+            return 5;
         }
 
-        int bill = entry;
-
+        bill = 5 + (exitHour - enterHour - 1) * 4;
+        if (exitMinute > enterMinute) {
+            bill += 4;
+        }
 
         return bill;
     }
@@ -48,8 +53,8 @@ public class ParkingBill {
         String l = "13:21";
         System.out.printf("The parking bill from %s to %s is : $%s\n", e, l, pb.solution(e, l));
 
-        e = "10:00";
-        l = "13:21";
+        e = "09:42";
+        l = "11:42";
         System.out.printf("The parking bill from %s to %s is : $%s\n", e, l, pb.solution(e, l));
     }
 }
