@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /*
  * An array A of points in a 2D plane is given. These points represent a polygon: every two
  * consecutive points describe an edge of the polygon, and there is an edge connecting the last
@@ -56,17 +58,23 @@
  */
 
 public class PolygonConcavityIndex {
-    public int solution(Point[] poly) {
+    public int solution(int[][] poly) {
         if (poly.length < 4) {
             return -1;
         }
 
-        int len = poly.length;
-        Point[] pts = new Point[len];
-        for (int i = 0; i < len; i++) {
-            pts[i] = poly[i];
-        }
+        Arrays.sort(poly, (a, b) -> {
+            if (a[1] == b[1]) {
+                return (a[0] < b[0]) ? -1 : 1;
+            }
+            return (a[1] < b[1]) ? -1 : 1;
+        });
 
+        // The lowest Y
+        int[] minYPoint = poly[0];
+        System.out.printf("The lowest y is %s\n", minYPoint[1]);
+
+        int
 
 
         return -1;
@@ -75,26 +83,37 @@ public class PolygonConcavityIndex {
     public static void main(String[] args) {
         PolygonConcavityIndex pci = new PolygonConcavityIndex();
 
-        Point[] poly1 = new Point[5];
-        poly1[0] = new Point(-1, 3);
-        poly1[1] = new Point(1, 2);
-        poly1[2] = new Point(3, 1);
-        poly1[3] = new Point(0, -1);
-        poly1[4] = new Point(-2, 1);
-        System.out.printf("%s -> %s\n", poly1, pci.solution(poly1));
+        // Point[] poly1 = new Point[5];
+        // poly1[0] = new Point(-1, 3);
+        // poly1[1] = new Point(1, 2);
+        // poly1[2] = new Point(3, 1);
+        // poly1[3] = new Point(0, -1);
+        // poly1[4] = new Point(-2, 1);
+        // System.out.printf("%s -> %s\n", poly1, pci.solution(poly1));
 
-        Point[] poly2 = new Point[7];
-        poly2[0] = new Point(-1, 3);
-        poly2[1] = new Point(1, 2);
-        poly2[2] = new Point(1, 1);
-        poly2[3] = new Point(3, 1);
-        poly2[4] = new Point(0, -1);
-        poly2[5] = new Point(-2, 1);
-        poly2[6] = new Point(-1, 2);
-        System.out.printf("%s -> %s\n", poly2, pci.solution(poly2));
+        // Point[] poly2 = new Point[7];
+        // poly2[0] = new Point(-1, 3);
+        // poly2[1] = new Point(1, 2);
+        // poly2[2] = new Point(1, 1);
+        // poly2[3] = new Point(3, 1);
+        // poly2[4] = new Point(0, -1);
+        // poly2[5] = new Point(-2, 1);
+        // poly2[6] = new Point(-1, 2);
+        // System.out.printf("%s -> %s\n", poly2, pci.solution(poly2));
+
+        int[][] pts1 = { { -1, 3 }, { 3, 1 }, { 0, -1 }, { -2, 1 } };
+        System.out.printf("The index of %s is %s\n", Arrays.deepToString(pts1), pci.solution(pts1));
+
+        int[][] pts2 = { { -1, 3 }, { 1, 2 }, { 3, 1 }, { 1, 1 }, { 0, -1 }, { -2, 1 }, { -1, 2 } };
+        System.out.printf("The index of %s is %s\n", Arrays.deepToString(pts2), pci.solution(pts2));
+
+        int[][] pts3 = { { -1, 3 }, { 1, 2 }, { 3, 1 }, { 0, -1 }, { -2, 1 } };
+        System.out.printf("The index of %s is %s\n", Arrays.deepToString(pts3), pci.solution(pts3));
+
+        int[][] pts4 = { { -1, 3 }, { 1, 2 }, { 1, 1 }, { 3, 1 }, { 0, -1 }, { -2, 1 }, { -1, 2 } };
+        System.out.printf("The index of %s is %s\n", Arrays.deepToString(pts4), pci.solution(pts4));
     }
 }
-
 
 class Point {
     int x;

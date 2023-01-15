@@ -5,7 +5,6 @@ if __name__ == '__main__':
     a = [[0 for x in range(columns)] for y in range(rows)]
     print(a)
 
-
     N = M = 5
     Matrix = {(x,y):0 for x in range(N) for y in range(M)}
     point1 = (1, 2)
