@@ -2,6 +2,8 @@
 
 ## Algorithmic skills
 
+![1673956115150](image/Exercises/1673956115150.png)
+
 ### FirstUnique
 
 ![1673703234048](image/Exercises/1673703234048.png)
@@ -45,7 +47,7 @@ O(N * log(N))
 
 ![1673704303061](image/Exercises/1673704303061.png)
 
-## StrSymmetryPoint
+### StrSymmetryPoint
 
 O(length(S))
 
@@ -57,7 +59,7 @@ O(length(S))
 
 ![1673706169324](image/Exercises/1673706169324.png)
 
-## TreeHeight
+### TreeHeight
 
 ![1673734269485](image/Exercises/1673734269485.png)
 
@@ -65,7 +67,7 @@ O(length(S))
 
 ![1673734307041](image/Exercises/1673734307041.png)
 
-## ArrayInversionCount
+### ArrayInversionCount
 
 ![1673743042478](image/Exercises/1673743042478.png)
 
@@ -73,7 +75,7 @@ O(length(S))
 
 ![1673743085222](image/Exercises/1673743085222.png)
 
-## DisappearingPairs
+### DisappearingPairs
 
 ![1673795593675](image/Exercises/1673795593675.png)
 
@@ -81,4 +83,10 @@ O(length(S))
 
 ![1673795623761](image/Exercises/1673795623761.png)
 
-## PolygonConcavityIndex
+### PolygonConcavityIndex
+
+...
+
+## Coding skills
+
+![1673956183450](image/Exercises/1673956183450.png)
